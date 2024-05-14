@@ -1,21 +1,29 @@
-import { StatusBar } from 'expo-status-bar'
 import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { Slot, SplashScreen, Stack } from 'expo-router'
+import { useFonts } from 'expo-font'
+import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 
-export default function App() {
+SplashScreen.preventAutoHideAsync();
+
+const RooyLayout = () => {
+    const [fontsLoaded, error] = useFonts({
+        "SpaceMono-Regular": require("./assets/fonts/SpaceMono-Regular.ttf"),
+    });
+
+    useEffect(() => {
+        if(error) throw error;
+
+        if(fontsLoaded) SplashScreen.hideAsync();
+    }, [fontsLoaded, error]);
+
+    if(!fontsLoaded && !error) return null;
+
     return (
-        <view style={styles.container}>
-            <text>Open your App</text>
-            <StatusBar style='auto' />
-        </view>
-    )
+        <Stack>
+            <Stack.Screen name="index" options={{ headerShown: false }} />
+        </Stack>
+        )
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center'
-    }
-});
+export default RooyLayout
