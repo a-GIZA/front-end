@@ -1,21 +1,19 @@
 import { StyleSheet, Text, View } from 'react-native'
 import { Slot, SplashScreen, Stack } from 'expo-router'
-import { useFonts } from 'expo-font'
-import { useEffect } from 'react'
-import React, { useEffect } from 'react'
+
 
 SplashScreen.preventAutoHideAsync();
 
-const RooyLayout = () => {
-    const [fontsLoaded, error] = useFonts({
-        "SpaceMono-Regular": require("./assets/fonts/SpaceMono-Regular.ttf"),
-    });
+//const RooyLayout = () => {
+    // const [fontsLoaded, error] = useFonts({
+    //     "SpaceMono-Regular": require("./assets/fonts/SpaceMono-Regular.ttf"),
+    // });
 
     useEffect(() => {
         if(error) throw error;
 
         if(fontsLoaded) SplashScreen.hideAsync();
-    }, [fontsLoaded, error]);
+     [fontsLoaded, error]});
 
     if(!fontsLoaded && !error) return null;
 
@@ -24,6 +22,6 @@ const RooyLayout = () => {
             <Stack.Screen name="index" options={{ headerShown: false }} />
         </Stack>
         )
-}
+
 
 export default RooyLayout
