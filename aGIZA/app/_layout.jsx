@@ -1,27 +1,57 @@
-import { StyleSheet, Text, View } from 'react-native'
-import { Slot, SplashScreen, Stack } from 'expo-router'
+// import { StyleSheet, Text, View } from 'react-native'
+// import { Slot, SplashScreen, Stack } from 'expo-router'
 
+
+// SplashScreen.preventAutoHideAsync();
+
+// //const RooyLayout = () => {
+//     // const [fontsLoaded, error] = useFonts({
+//     //     "SpaceMono-Regular": require("./assets/fonts/SpaceMono-Regular.ttf"),
+//     // });
+
+//     useEffect(() => {
+//         if(error) throw error;
+
+//         if(fontsLoaded) SplashScreen.hideAsync();
+//      [fontsLoaded, error]});
+
+//     if(!fontsLoaded && !error) return null;
+
+//     return (
+//         <Stack>
+//             <Stack.Screen name="index" options={{ headerShown: false }} />
+//         </Stack>
+//         )
+
+
+// export default RooyLayout
+
+
+import React, { useEffect } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { Slot, SplashScreen, Stack } from 'expo-router';
+import { useFonts } from 'expo-font'; // Ensure useFonts is imported
 
 SplashScreen.preventAutoHideAsync();
 
-//const RooyLayout = () => {
-    // const [fontsLoaded, error] = useFonts({
-    //     "SpaceMono-Regular": require("./assets/fonts/SpaceMono-Regular.ttf"),
-    // });
+const RooyLayout = () => {
+  const [fontsLoaded, error] = useFonts({
+    "SpaceMono-Regular": require("../assets/fonts/SpaceMono-Regular.ttf"),
+  });
 
-    useEffect(() => {
-        if(error) throw error;
+  useEffect(() => {
+    if (error) throw error;
 
-        if(fontsLoaded) SplashScreen.hideAsync();
-     [fontsLoaded, error]});
+    if (fontsLoaded) SplashScreen.hideAsync();
+  }, [fontsLoaded, error]);
 
-    if(!fontsLoaded && !error) return null;
+  if (!fontsLoaded && !error) return null;
 
-    return (
-        <Stack>
-            <Stack.Screen name="index" options={{ headerShown: false }} />
-        </Stack>
-        )
+  return (
+    <Stack>
+      <Stack.Screen name="index" options={{ headerShown: false }} />
+    </Stack>
+  );
+};
 
-
-export default RooyLayout
+export default RooyLayout;
