@@ -18,7 +18,7 @@ export default function App()  {
           />
           <Image 
             source={images.undraw_on_the_way_re_swjt}
-            classname="w-[100%] h-[300px]"
+            classname="max-w--[380px] w-full h-[300px]"
             resizeMode="contain"
           />
         </View>
