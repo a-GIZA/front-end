@@ -10,8 +10,3 @@ const Create = () => {
 }
 
 export default Create
-rasuliomari kaniki 
-anamtoto mmoja 
-anaitwa zukhra
-rasuli
-omari
